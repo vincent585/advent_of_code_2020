@@ -16,6 +16,14 @@ def multiply_2020_values(vals)
   vals.reduce(&:*)
 end
 
+def find_triple_sum(input)
+  input.combination(3).to_a.keep_if { |trip| trip.reduce(&:+) == 2020 }.flatten
+end
+
 inp = load_input
-values = sum_to_2020(inp)
-p multiply_2020_values(values)
+pair = sum_to_2020(inp)
+print 'Pair solution: '
+p multiply_2020_values(pair)
+print 'Triple solution: '
+triple = find_triple_sum(inp)
+p multiply_2020_values(triple)
